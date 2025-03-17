@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.IO.Ports;
+using UnityEngine.SceneManagement;
 
 public class PaddleController : MonoBehaviour
 {
@@ -7,7 +8,7 @@ public class PaddleController : MonoBehaviour
     public string portName = "COM6";
     private static SerialPort serialPort;
     private float currentPosition = 0f;
-    public float smoothSpeed = 10f; // Tambahkan variabel ini untuk mengatur kecepatan
+    public float smoothSpeed = 5f;
 
     void Start()
     {
@@ -34,8 +35,12 @@ public class PaddleController : MonoBehaviour
             try
             {
                 string data = serialPort.ReadLine();
-                string[] values = data.Split(',');
+                if (data.Contains("RESTART"))
+                {
+                    RestartGame();
+                }
 
+                string[] values = data.Split(',');
                 if (values.Length >= 2)
                 {
                     float potValue = 0f;
@@ -48,7 +53,6 @@ public class PaddleController : MonoBehaviour
                         float.TryParse(values[1].Trim(), out potValue);
                     }
 
-                    // Mapping nilai potensio (0-1023) ke posisi paddle (-5 sampai 5)
                     float targetPosition = (potValue / 1023f) * 10f - 5f;
                     currentPosition = Mathf.Lerp(currentPosition, targetPosition, Time.deltaTime * smoothSpeed);
                     transform.position = new Vector3(transform.position.x, currentPosition, transform.position.z);
@@ -64,11 +68,27 @@ public class PaddleController : MonoBehaviour
         }
     }
 
-    void OnApplicationQuit()
+    void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    void OnDestroy()
+    {
+        ClosePort();
+    }
+
+    void OnDisable()
+    {
+        ClosePort();
+    }
+
+    void ClosePort()
     {
         if (serialPort != null && serialPort.IsOpen)
         {
             serialPort.Close();
+            serialPort.Dispose();
             Debug.Log("Port ditutup");
         }
     }
