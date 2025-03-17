@@ -34,5 +34,5 @@ void loop() {
   Serial.print(",");
   Serial.println(rightValue);
   
-  delay(50); // Delay kecil untuk stabilitas
+  delay(0); // Delay kecil untuk stabilitas
 }
