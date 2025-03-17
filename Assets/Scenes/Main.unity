@@ -156,6 +156,8 @@ MonoBehaviour:
   paddleIdentifier: Right
   portName: COM6
   smoothSpeed: 10
+  upperBoundary: 2.8
+  lowerBoundary: -2.8
 --- !u!61 &155486399
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1369,6 +1371,8 @@ MonoBehaviour:
   paddleIdentifier: Left
   portName: COM6
   smoothSpeed: 10
+  upperBoundary: 2.8
+  lowerBoundary: -2.8
 --- !u!1 &1069764273
 GameObject:
   m_ObjectHideFlags: 0

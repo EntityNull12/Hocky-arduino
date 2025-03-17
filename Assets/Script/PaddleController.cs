@@ -8,7 +8,11 @@ public class PaddleController : MonoBehaviour
     public string portName = "COM6";
     private static SerialPort serialPort;
     private float currentPosition = 0f;
-    public float smoothSpeed = 5f;
+    public float smoothSpeed = 10f;
+
+    // Batas atas dan bawah untuk paddle
+    public float upperBoundary = 2.8f;
+    public float lowerBoundary = -2.8f;
 
     void Start()
     {
@@ -55,6 +59,10 @@ public class PaddleController : MonoBehaviour
 
                     float targetPosition = (potValue / 1023f) * 10f - 5f;
                     currentPosition = Mathf.Lerp(currentPosition, targetPosition, Time.deltaTime * smoothSpeed);
+
+                    // Batasi posisi paddle
+                    currentPosition = Mathf.Clamp(currentPosition, lowerBoundary, upperBoundary);
+
                     transform.position = new Vector3(transform.position.x, currentPosition, transform.position.z);
                 }
             }
