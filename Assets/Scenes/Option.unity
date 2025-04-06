@@ -363,9 +363,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paddleSpeedSlider: {fileID: 781680735}
-  ballSpeedSlider: {fileID: 1744989988}
   bgmVolumeSlider: {fileID: 293402511}
   sfxVolumeSlider: {fileID: 756944431}
+  ballSpeedSlider: {fileID: 1744989988}
+  ballController: {fileID: 0}
 --- !u!1 &257158544
 GameObject:
   m_ObjectHideFlags: 0
@@ -672,9 +673,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 722866098}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.542
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1361,7 +1362,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 50
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 20
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -2565,7 +2566,7 @@ MonoBehaviour:
   m_MinValue: 100
   m_MaxValue: 600
   m_WholeNumbers: 0
-  m_Value: 100
+  m_Value: 400
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

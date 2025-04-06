@@ -11,6 +11,12 @@ public class OptionManager : MonoBehaviour
 
     void Start()
     {
+
+        bgmVolumeSlider.onValueChanged.AddListener((value) => {
+            GameSettings.instance.bgmVolume = value;
+            // Langsung simpan perubahan
+            GameSettings.instance.SaveSettings();
+        });
         // Inisialisasi nilai slider dari GameSettings
         ballSpeedSlider.value = GameSettings.instance.ballSpeed;
         ballSpeedSlider.onValueChanged.AddListener((value) => {

@@ -155,9 +155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paddleIdentifier: Right
   portName: COM6
-  smoothSpeed: 10
   upperBoundary: 2.8
   lowerBoundary: -2.8
+  defaultPaddleSpeed: 10
+  maxPaddleSpeed: 50
 --- !u!61 &155486399
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -383,6 +384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 400
+  defaultBallSpeed: 5
   hitSound: {fileID: 8300000, guid: e3189ec970479ee468997a5b260b7a50, type: 3}
   whistleSound: {fileID: 8300000, guid: 15194ed00a36b0d428b09046db153542, type: 3}
 --- !u!58 &296078775
@@ -702,6 +704,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
   - component: {fileID: 519420034}
+  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -892,6 +895,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEscapeToExit: 1
+--- !u!114 &519420035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df1b0f9fba760c448137ae707d5de81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &549193106
 GameObject:
   m_ObjectHideFlags: 0
@@ -1513,9 +1528,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paddleIdentifier: Left
   portName: COM6
-  smoothSpeed: 10
   upperBoundary: 2.8
   lowerBoundary: -2.8
+  defaultPaddleSpeed: 10
+  maxPaddleSpeed: 50
 --- !u!1 &1069764273
 GameObject:
   m_ObjectHideFlags: 0

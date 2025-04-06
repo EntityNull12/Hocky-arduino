@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 490672983}
   - component: {fileID: 490672986}
   - component: {fileID: 490672987}
+  - component: {fileID: 490672988}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -458,6 +459,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &490672988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490672982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4149971593936c145b83ef8a4ab1c72c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 0
+  defaultBallSpeed: 5
+  hitSound: {fileID: 0}
+  whistleSound: {fileID: 0}
 --- !u!1 &543357790
 GameObject:
   m_ObjectHideFlags: 0
