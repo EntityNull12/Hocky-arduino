@@ -8,14 +8,30 @@ public class PaddleController : MonoBehaviour
     public string portName = "COM6";
     private static SerialPort serialPort;
     private float currentPosition = 0f;
-    public float smoothSpeed = 10f;
+    private float paddleSpeed;
+    private float smoothSpeed;
+
+//debug
+
+        private float currentSpeed; // Tambahkan variabel untuk tracking speed saat ini
+    private Vector3 lastPosition; 
 
     // Batas atas dan bawah untuk paddle
     public float upperBoundary = 2.8f;
     public float lowerBoundary = -2.8f;
+    public float defaultPaddleSpeed = 10f; // Ubah default speed menjadi 20
+    public float maxPaddleSpeed = 50f; // Tambahkan batas maksimal speed
 
     void Start()
     {
+
+        paddleSpeed = Mathf.Min(PlayerPrefs.GetFloat("PaddleSpeed", defaultPaddleSpeed), maxPaddleSpeed);
+        smoothSpeed = paddleSpeed;
+        lastPosition = transform.position;
+        // Pastikan paddle speed tidak melebihi batas maksimal
+        paddleSpeed = Mathf.Min(PlayerPrefs.GetFloat("PaddleSpeed", defaultPaddleSpeed), maxPaddleSpeed);
+        smoothSpeed = paddleSpeed;
+
         if (serialPort == null || !serialPort.IsOpen)
         {
             try
@@ -34,6 +50,11 @@ public class PaddleController : MonoBehaviour
 
     void Update()
     {
+        float movement = Input.GetAxis("Horizontal") * paddleSpeed * Time.deltaTime;
+        transform.Translate(movement, 0, 0);
+        currentSpeed = ((transform.position - lastPosition).magnitude) / Time.deltaTime;
+        lastPosition = transform.position;
+        Debug.Log($"Paddle Info - Set Speed: {paddleSpeed}, Smooth Speed: {smoothSpeed}, Actual Speed: {currentSpeed:F2}");
         if (serialPort != null && serialPort.IsOpen)
         {
             try

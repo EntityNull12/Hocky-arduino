@@ -3,14 +3,19 @@ using UnityEngine.UI;
 
 public class BallController : MonoBehaviour
 {
-    public int force;
-    Rigidbody2D rigid;
+  
+    private Rigidbody2D rigid;
+    [SerializeField] private float force; // Ini akan diatur dari slider
+    [SerializeField] private float defaultBallSpeed = 5f;
     int scoreP1;
     int scoreP2;
     Text scoreUIP1;
     Text scoreUIP2;
 
+
     GameObject panelSelesai;
+    private float ballSpeed;
+   
     Text txPemenang;
     AudioSource audio;
     public AudioClip hitSound;
@@ -19,6 +24,8 @@ public class BallController : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody2D>();
+        force = GameSettings.instance.ballSpeed;
+        ballSpeed = GameSettings.instance.ballSpeed;
         Vector2 arah = new Vector2(2, 0).normalized;
         rigid.AddForce(arah * force);
         scoreP1 = 0;
@@ -92,5 +99,19 @@ public class BallController : MonoBehaviour
         txPemenang.text = winner;
         audio.PlayOneShot(whistleSound); // Play whistle sound at the end
         Destroy(gameObject);
+    }
+
+    public void UpdateForce(float newForce)
+    {
+        force = newForce;
+    }
+
+    void LaunchBall()
+    {
+        float xPos = Random.Range(0, 2) == 0 ? -1 : 1;
+        float yPos = Random.Range(0, 2) == 0 ? -1 : 1;
+
+        Vector2 direction = new Vector2(xPos, yPos);
+        rigid.AddForce(direction * force);
     }
 }
