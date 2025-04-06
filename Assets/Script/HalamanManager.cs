@@ -72,4 +72,14 @@ public class HalamanManager : MonoBehaviour
     {
         SceneManager.LoadScene("Intro");
     }
+
+    public void tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void option()
+    {
+        SceneManager.LoadScene("Option");
+    }
 }
