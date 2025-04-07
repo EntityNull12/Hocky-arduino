@@ -7,7 +7,7 @@ public class BGMController : MonoBehaviour
     void Awake()
     {
         // Pastikan objek ini tidak hancur saat pindah scene
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         audioSource = GetComponent<AudioSource>();
     }
 

@@ -28,9 +28,12 @@ public class OptionManager : MonoBehaviour
                 ballController.UpdateForce(value);
             }
         });
-        paddleSpeedSlider.value = GameSettings.instance.paddleSpeed;
+        //paddleSpeedSlider.value = GameSettings.instance.paddleSpeed;
         bgmVolumeSlider.value = GameSettings.instance.bgmVolume;
-        sfxVolumeSlider.value = GameSettings.instance.sfxVolume;
+        sfxVolumeSlider.onValueChanged.AddListener((value) => {
+            GameSettings.instance.sfxVolume = value;
+            GameSettings.instance.SaveSettings();
+        });
         paddleSpeedSlider.onValueChanged.AddListener((value) => {
             GameSettings.instance.paddleSpeed = value;
         });

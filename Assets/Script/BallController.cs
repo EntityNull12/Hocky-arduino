@@ -6,7 +6,7 @@ public class BallController : MonoBehaviour
   
     private Rigidbody2D rigid;
     [SerializeField] private float force; // Ini akan diatur dari slider
-    [SerializeField] private float defaultBallSpeed = 5f;
+    [SerializeField] private float defaultBallSpeed = 400f;
     int scoreP1;
     int scoreP2;
     Text scoreUIP1;
