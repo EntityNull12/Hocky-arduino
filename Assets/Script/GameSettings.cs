@@ -5,9 +5,9 @@ public class GameSettings : MonoBehaviour
     public static GameSettings instance;
 
     public float paddleSpeed = 10f; // Default speed
-    public float bgmVolume = 1f;
-    public float sfxVolume = 1f;
-    public float ballSpeed = 5f; // Nilai default
+    public float bgmVolume = 0.5f;
+    public float sfxVolume = 0.5f;
+    public float ballSpeed = 400f; // Nilai default
 
     void Awake()
     {
@@ -35,8 +35,18 @@ public class GameSettings : MonoBehaviour
 
     void LoadSettings()
     {
-        paddleSpeed = PlayerPrefs.GetFloat("PaddleSpeed", 10f);
-        bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 1f);
-        sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 1f);
+        paddleSpeed = PlayerPrefs.GetFloat("PaddleSpeed", 5f);
+        bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 0.5f);
+        sfxVolume = PlayerPrefs.GetFloat("SFXVolume", 0.5f);
+        ballSpeed = PlayerPrefs.GetFloat("BallSpeed", 300f);
     }
+    public void ResetToDefaults()
+    {
+        paddleSpeed = 5f;
+        bgmVolume = 0.5f;
+        sfxVolume = 0.5f;
+        ballSpeed = 300f;
+        SaveSettings();
+    }
+
 }
