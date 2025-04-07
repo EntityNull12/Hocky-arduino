@@ -1,3 +1,4 @@
+using System.IO.Ports;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ public class OptionManager : MonoBehaviour
     public Slider sfxVolumeSlider;
     [SerializeField] private Slider ballSpeedSlider;
     [SerializeField] private BallController ballController;
+
+    private SerialPort serialPort;
+    private string portName = "COM6";
 
     void Start()
     {
@@ -37,7 +41,61 @@ public class OptionManager : MonoBehaviour
         paddleSpeedSlider.onValueChanged.AddListener((value) => {
             GameSettings.instance.paddleSpeed = value;
         });
+
+        serialPort = new SerialPort(portName, 9600);
+        try
+        {
+            serialPort.Open();
+        }
+        catch (System.Exception e)
+        {
+            Debug.LogError("Error opening serial port: " + e.Message);
+        }
     }
+
+    void Update()
+    {
+        if (serialPort != null && serialPort.IsOpen)
+        {
+            try
+            {
+                string data = serialPort.ReadLine();
+                if (data.Contains("RESTART"))
+                {
+                    // Handle restart if needed
+                }
+                else
+                {
+                    string[] values = data.Split(',');
+                    if (values.Length == 2)
+                    {
+                        // Convert potentiometer values (0-1023) to slider ranges
+                        float paddleSpeed = Map(float.Parse(values[0]), 0, 1023,
+                            paddleSpeedSlider.minValue, paddleSpeedSlider.maxValue);
+                        float ballSpeed = Map(float.Parse(values[1]), 0, 1023,
+                            ballSpeedSlider.minValue, ballSpeedSlider.maxValue);
+
+                        // Update sliders
+                        paddleSpeedSlider.value = paddleSpeed;
+                        ballSpeedSlider.value = ballSpeed;
+
+                        // Save settings
+                        SaveSettings();
+                    }
+                }
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError("Error reading serial: " + e.Message);
+            }
+        }
+    }
+
+    private float Map(float value, float fromLow, float fromHigh, float toLow, float toHigh)
+    {
+        return (value - fromLow) * (toHigh - toLow) / (fromHigh - fromLow) + toLow;
+    }
+
 
     public void SaveSettings()
     {
@@ -49,5 +107,13 @@ public class OptionManager : MonoBehaviour
 
         // Simpan ke PlayerPrefs
         GameSettings.instance.SaveSettings();
+    }
+
+    void OnDestroy()
+    {
+        if (serialPort != null && serialPort.IsOpen)
+        {
+            serialPort.Close();
+        }
     }
 }

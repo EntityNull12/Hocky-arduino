@@ -9,12 +9,23 @@ public class HalamanManager : MonoBehaviour
     public bool isEscapeToExit;
     private SerialPort serialPort;
 
+    public GameObject panelPause;
+    public GameObject tombolPause;
+    private bool isPaused = false;
+
     void Start()
     {
         // Sesuaikan port COM dengan Arduino Anda
         serialPort = new SerialPort("COM6", 9600);
         serialPort.Open();
         StartCoroutine(ReadSerialData());
+
+        if (panelPause != null)
+        {
+            panelPause.SetActive(false); 
+        }
+
+        Time.timeScale = 1f;
     }
 
     IEnumerator ReadSerialData()
@@ -56,11 +67,44 @@ public class HalamanManager : MonoBehaviour
             {
                 Application.Quit();
             }
+            else if (SceneManager.GetActiveScene().name == "Main")
+            {
+                TogglePause(); // Panggil fungsi pause jika di scene Main
+            }
             else
             {
                 KembaliKeMenu();
             }
         }
+    }
+
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        if (isPaused)
+        {
+            PauseGame();
+        }
+        else
+        {
+            ResumeGame();
+        }
+    }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0f; // Hentikan waktu game
+        panelPause.SetActive(true); // Tampilkan panel pause
+        tombolPause.SetActive(false);
+    }
+
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f; // Jalankan waktu game
+        panelPause.SetActive(false); // Sembunyikan panel pause
+        isPaused = false;
+        tombolPause.SetActive(true);
     }
 
     public void MulaiPermainan()
