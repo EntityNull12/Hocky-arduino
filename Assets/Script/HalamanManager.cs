@@ -109,6 +109,7 @@ public class HalamanManager : MonoBehaviour
 
     public void MulaiPermainan()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("Main");
     }
 

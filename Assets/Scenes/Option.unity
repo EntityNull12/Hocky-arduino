@@ -673,9 +673,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 722866098}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 0.5
   m_WholeNumbers: 0
-  m_Value: 0.542
+  m_Value: 0.197
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1998,6 +1998,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEscapeToExit: 0
+  panelPause: {fileID: 0}
+  tombolPause: {fileID: 0}
 --- !u!1 &1300582052
 GameObject:
   m_ObjectHideFlags: 0

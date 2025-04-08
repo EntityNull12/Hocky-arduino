@@ -5,8 +5,8 @@ public class GameSettings : MonoBehaviour
     public static GameSettings instance;
 
     public float paddleSpeed = 10f; // Default speed
-    public float bgmVolume = 0.5f;
-    public float sfxVolume = 0.5f;
+    public float bgmVolume = 0.2f;
+    public float sfxVolume = 1f;
     public float ballSpeed = 400f; // Nilai default
 
     void Awake()
