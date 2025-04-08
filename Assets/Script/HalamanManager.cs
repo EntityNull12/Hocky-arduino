@@ -113,6 +113,12 @@ public class HalamanManager : MonoBehaviour
         SceneManager.LoadScene("Main");
     }
 
+    public void MulaiPermainanApril()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("AprilMain");
+    }
+
     public void KembaliKeMenu()
     {
         SceneManager.LoadScene("Intro");
