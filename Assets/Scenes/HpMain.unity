@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 155486401}
   - component: {fileID: 155486400}
   - component: {fileID: 155486399}
-  - component: {fileID: 155486398}
+  - component: {fileID: 155486402}
   m_Layer: 0
   m_Name: Pemukul2
   m_TagString: Untagged
@@ -141,24 +141,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &155486398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 155486397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be70cb43becf2614a8522fccf2f93d9f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  paddleIdentifier: Right
-  portName: COM6
-  upperBoundary: 2.8
-  lowerBoundary: -2.8
-  defaultPaddleSpeed: 10
-  maxPaddleSpeed: 50
 --- !u!61 &155486399
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -271,6 +253,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &155486402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 155486397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afde8e58be7d22945b5b03f313afec04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  paddleIdentifier: Right
+  portName: COM6
+  maxHP: 500
+  hpText: {fileID: 1568327978}
+  upperBoundary: 2.8
+  lowerBoundary: -2.8
+  defaultPaddleSpeed: 10
+  maxPaddleSpeed: 50
+  panelSelesai: {fileID: 1851009462}
+  txPemenang: {fileID: 1522159409}
 --- !u!1 &224589035
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,9 +445,9 @@ GameObject:
   - component: {fileID: 296078777}
   - component: {fileID: 296078776}
   - component: {fileID: 296078775}
-  - component: {fileID: 296078774}
   - component: {fileID: 296078779}
   - component: {fileID: 296078780}
+  - component: {fileID: 296078781}
   m_Layer: 0
   m_Name: Bola
   m_TagString: Untagged
@@ -451,22 +455,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &296078774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296078773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4149971593936c145b83ef8a4ab1c72c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  force: 400
-  defaultBallSpeed: 5
-  hitSound: {fileID: 8300000, guid: e3189ec970479ee468997a5b260b7a50, type: 3}
-  whistleSound: {fileID: 8300000, guid: 15194ed00a36b0d428b09046db153542, type: 3}
 --- !u!58 &296078775
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -704,6 +692,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b39a92e7eeaa0f348bdc314a53126b38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &296078781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296078773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21ead33e40ef8d344ab46780f96d6d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 400
+  damageText: {fileID: 505295975}
+  roundText: {fileID: 1110129070}
+  hitSound: {fileID: 8300000, guid: e3189ec970479ee468997a5b260b7a50, type: 3}
+  whistleSound: {fileID: 8300000, guid: 15194ed00a36b0d428b09046db153542, type: 3}
 --- !u!1 &328023735
 GameObject:
   m_ObjectHideFlags: 0
@@ -926,6 +931,85 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1 &505295973
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 505295974}
+  - component: {fileID: 505295976}
+  - component: {fileID: 505295975}
+  m_Layer: 5
+  m_Name: Damage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &505295974
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505295973}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2101974274}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -700, y: -950}
+  m_SizeDelta: {x: 600, y: 131}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &505295975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505295973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7b6d452d8e3c9c84491cb5a0bb795980, type: 3}
+    m_FontSize: 64
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 86
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 100
+--- !u!222 &505295976
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505295973}
+  m_CullTransparentMesh: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,15 +1923,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 965478450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be70cb43becf2614a8522fccf2f93d9f, type: 3}
+  m_Script: {fileID: 11500000, guid: afde8e58be7d22945b5b03f313afec04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   paddleIdentifier: Left
   portName: COM6
+  maxHP: 500
+  hpText: {fileID: 1437673121}
   upperBoundary: 2.8
   lowerBoundary: -2.8
   defaultPaddleSpeed: 10
   maxPaddleSpeed: 50
+  panelSelesai: {fileID: 1851009462}
+  txPemenang: {fileID: 1522159409}
 --- !u!1 &1069764273
 GameObject:
   m_ObjectHideFlags: 0
@@ -2143,6 +2231,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1086837302}
   m_CullTransparentMesh: 1
+--- !u!1 &1110129068
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1110129069}
+  - component: {fileID: 1110129071}
+  - component: {fileID: 1110129070}
+  m_Layer: 5
+  m_Name: Permainan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1110129069
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110129068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2101974274}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 750, y: -950}
+  m_SizeDelta: {x: 400, y: 131}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1110129070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110129068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 7b6d452d8e3c9c84491cb5a0bb795980, type: 3}
+    m_FontSize: 64
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 86
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 0
+--- !u!222 &1110129071
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1110129068}
+  m_CullTransparentMesh: 1
 --- !u!1 &1111526971
 GameObject:
   m_ObjectHideFlags: 0
@@ -2227,7 +2394,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 519420034}
         m_TargetAssemblyTypeName: HalamanManager, Assembly-CSharp
-        m_MethodName: MulaiPermainan
+        m_MethodName: MulaiPermainanHP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2630,7 +2797,7 @@ GameObject:
   - component: {fileID: 1437673122}
   - component: {fileID: 1437673121}
   m_Layer: 5
-  m_Name: Score1
+  m_Name: HP merah
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2652,8 +2819,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -140, y: -120}
-  m_SizeDelta: {x: 230, y: 131}
+  m_AnchoredPosition: {x: -600, y: -120}
+  m_SizeDelta: {x: 400, y: 131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1437673121
 MonoBehaviour:
@@ -2677,7 +2844,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7b6d452d8e3c9c84491cb5a0bb795980, type: 3}
-    m_FontSize: 86
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2688,7 +2855,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 1000
 --- !u!222 &1437673122
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2852,7 +3019,7 @@ GameObject:
   - component: {fileID: 1568327979}
   - component: {fileID: 1568327978}
   m_Layer: 5
-  m_Name: Score2
+  m_Name: HP kuning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2874,8 +3041,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 140, y: -120}
-  m_SizeDelta: {x: 230, y: 131}
+  m_AnchoredPosition: {x: 550, y: -120}
+  m_SizeDelta: {x: 400, y: 131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1568327978
 MonoBehaviour:
@@ -2899,7 +3066,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 7b6d452d8e3c9c84491cb5a0bb795980, type: 3}
-    m_FontSize: 86
+    m_FontSize: 64
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -2910,7 +3077,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 1000
 --- !u!222 &1568327979
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3681,7 +3848,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 519420034}
         m_TargetAssemblyTypeName: HalamanManager, Assembly-CSharp
-        m_MethodName: MulaiPermainan
+        m_MethodName: MulaiPermainanHP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3825,6 +3992,8 @@ RectTransform:
   m_Children:
   - {fileID: 1437673120}
   - {fileID: 1568327977}
+  - {fileID: 505295974}
+  - {fileID: 1110129069}
   - {fileID: 1851009463}
   - {fileID: 360002313}
   - {fileID: 1264039624}

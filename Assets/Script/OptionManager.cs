@@ -9,6 +9,8 @@ public class OptionManager : MonoBehaviour
     public Slider sfxVolumeSlider;
     [SerializeField] private Slider ballSpeedSlider;
     [SerializeField] private BallController ballController;
+    [SerializeField] private HPBallController hpBallController;
+
 
     private SerialPort serialPort;
     private string portName = "COM6";
@@ -30,6 +32,11 @@ public class OptionManager : MonoBehaviour
             if (ballController != null)
             {
                 ballController.UpdateForce(value);
+            }
+
+            if (hpBallController != null)
+            {
+                hpBallController.UpdateBallSpeed();
             }
         });
         //paddleSpeedSlider.value = GameSettings.instance.paddleSpeed;
