@@ -74,7 +74,7 @@ public class HPBallController : MonoBehaviour
             if (currentRound == 21)
             {
                 isDeathBall = true;
-                currentDamage = -1000;
+                currentDamage = -500;
             }
 
             UpdateUI();
