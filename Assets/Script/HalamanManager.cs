@@ -139,4 +139,8 @@ public class HalamanManager : MonoBehaviour
     {
         SceneManager.LoadScene("Option");
     }
+    public void intro()
+    {
+        SceneManager.LoadScene("IntroUtama");
+    }
 }

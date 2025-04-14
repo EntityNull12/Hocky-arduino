@@ -622,7 +622,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   force: 0
-  hitSound: {fileID: 8300000, guid: e3189ec970479ee468997a5b260b7a50, type: 3}
+  hitSound: {fileID: 8300000, guid: ae128aa6ddee55c4ab8e7ea57a92ae0b, type: 3}
   whistleSound: {fileID: 8300000, guid: 15194ed00a36b0d428b09046db153542, type: 3}
 --- !u!1 &328023735
 GameObject:
@@ -808,7 +808,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 46be1ad017e4b0240b0c5ba8db2be0ce, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f39784af689943e439c331ebd8026d1d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.099
   m_Pitch: 1
