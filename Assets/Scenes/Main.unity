@@ -387,7 +387,7 @@ MonoBehaviour:
   force: 400
   defaultBallSpeed: 5
   hitSound: {fileID: 8300000, guid: ae128aa6ddee55c4ab8e7ea57a92ae0b, type: 3}
-  whistleSound: {fileID: 8300000, guid: 15194ed00a36b0d428b09046db153542, type: 3}
+  whistleSound: {fileID: 0}
 --- !u!58 &296078775
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1455,7 +1455,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.1, y: 14.37, z: 1}
+  m_LocalScale: {x: 0.1, y: 12.37, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

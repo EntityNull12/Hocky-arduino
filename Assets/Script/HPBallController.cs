@@ -5,7 +5,7 @@ public class HPBallController : MonoBehaviour
 {
     private Rigidbody2D rigid;
     [SerializeField] private float force;
-
+    [SerializeField] private float defaultBallSpeed = 5f;
     public Text damageText;
     public Text roundText;
     private int currentRound = 1;
