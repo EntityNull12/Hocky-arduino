@@ -124,7 +124,7 @@ public class HPPaddleController : MonoBehaviour
 
     void EndGame()
     {
-        string winner = (paddleIdentifier == "Left") ? "Player Kuning" : "Player Merah";
+        string winner = (paddleIdentifier == "Left") ? "Player Kanan" : "Player Kiri";
         panelSelesai.SetActive(true);
         txPemenang.text = winner + " Menang!";
         Time.timeScale = 0f;

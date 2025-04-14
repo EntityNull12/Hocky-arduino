@@ -15,8 +15,8 @@ public class AprilPaddleController : MonoBehaviour
     private float currentSpeed;
     private Vector3 lastPosition;
 
-    public float upperBoundary = 2.8f;
-    public float lowerBoundary = -2.8f;
+    public float upperBoundary = 3f;
+    public float lowerBoundary = -3f;
     public float defaultPaddleSpeed = 10f;
     public float maxPaddleSpeed = 50f;
 

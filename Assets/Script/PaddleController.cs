@@ -17,8 +17,8 @@ public class PaddleController : MonoBehaviour
     private Vector3 lastPosition; 
 
     // Batas atas dan bawah untuk paddle
-    public float upperBoundary = 2f;
-    public float lowerBoundary = -2f;
+    public float upperBoundary = 2.2f;
+    public float lowerBoundary = -2.2f;
     public float defaultPaddleSpeed = 10f; // Ubah default speed menjadi 20
     public float maxPaddleSpeed = 50f; // Tambahkan batas maksimal speed
 

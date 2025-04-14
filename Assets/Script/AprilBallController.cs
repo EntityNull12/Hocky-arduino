@@ -77,7 +77,7 @@ public class AprilBallController : MonoBehaviour
             scoreP1 += 1;
             if (scoreP1 >= targetScore)
             {
-                EndGame("Player Merah");
+                EndGame("Player Kiri");
                 return;
             }
             ResetBall();
@@ -92,7 +92,7 @@ public class AprilBallController : MonoBehaviour
             scoreP2 += 1;
             if (scoreP2 >= targetScore)
             {
-                EndGame("Player Kuning");
+                EndGame("Player Kanan");
                 return;
             }
             ResetBall();

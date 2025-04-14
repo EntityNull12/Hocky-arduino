@@ -49,7 +49,7 @@ public class BallController : MonoBehaviour
             TampilkanScore();
             if (scoreP1 == 7)
             {
-                EndGame("Player Merah Pemenang");
+                EndGame("Player Kiri Pemenang");
                 return;
             }
             ResetBall();
@@ -62,7 +62,7 @@ public class BallController : MonoBehaviour
             TampilkanScore();
             if (scoreP2 == 7)
             {
-                EndGame("Player Kuning Pemenang");
+                EndGame("Player Kanan Pemenang");
                 return;
             }
             ResetBall();
