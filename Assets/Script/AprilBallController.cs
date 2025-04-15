@@ -8,7 +8,7 @@ public class AprilBallController : MonoBehaviour
     [SerializeField] private float force;
     private int scoreP1;
     private int scoreP2;
-    private int targetScore; // Skor yang harus dicapai untuk menang
+    private int targetScore;
 
     GameObject panelSelesai;
     Text txPemenang;

@@ -51,6 +51,18 @@ public class AprilPaddleController : MonoBehaviour
 
     void Update()
     {
+
+        float keyboardInput = 0f;
+        if (paddleIdentifier == "Left")
+        {
+            keyboardInput = Input.GetAxis("vertical1") * paddleSpeed * Time.deltaTime *2;
+        }
+        else if (paddleIdentifier == "Right")
+        {
+            keyboardInput = Input.GetAxis("vertical2") * paddleSpeed * Time.deltaTime *2;
+        }
+        currentPosition += keyboardInput;
+
         // Reverse keyboard input jika isReversed true
         float movement = Input.GetAxis("Horizontal") * paddleSpeed * Time.deltaTime;
         if (isReversed) movement *= -1;
@@ -95,8 +107,7 @@ public class AprilPaddleController : MonoBehaviour
                     }
 
                     currentPosition = Mathf.Lerp(currentPosition, targetPosition, Time.deltaTime * smoothSpeed);
-                    currentPosition = Mathf.Clamp(currentPosition, lowerBoundary, upperBoundary);
-                    transform.position = new Vector3(transform.position.x, currentPosition, transform.position.z);
+                    
                 }
             }
             catch (System.Exception e)
@@ -107,6 +118,8 @@ public class AprilPaddleController : MonoBehaviour
                 }
             }
         }
+        currentPosition = Mathf.Clamp(currentPosition, lowerBoundary, upperBoundary);
+        transform.position = new Vector3(transform.position.x, currentPosition, transform.position.z);
     }
 
     // Metode lainnya tetap sama

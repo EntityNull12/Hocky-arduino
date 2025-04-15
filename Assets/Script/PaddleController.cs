@@ -50,10 +50,22 @@ public class PaddleController : MonoBehaviour
 
     void Update()
     {
-        float movement = Input.GetAxis("Horizontal") * paddleSpeed * Time.deltaTime;
-        transform.Translate(movement, 0, 0);
+        
+       
         currentSpeed = ((transform.position - lastPosition).magnitude) / Time.deltaTime;
         lastPosition = transform.position;
+        float keyboardInput = 0f;
+
+        if (paddleIdentifier == "Left")
+        {
+            keyboardInput = Input.GetAxis("vertical1") * paddleSpeed * Time.deltaTime * 2;
+        }
+        else if (paddleIdentifier == "Right")
+        {
+            keyboardInput = Input.GetAxis("vertical2") * paddleSpeed * Time.deltaTime * 2;
+        }
+        currentPosition += keyboardInput;
+
         Debug.Log($"Paddle Info - Set Speed: {paddleSpeed}, Smooth Speed: {smoothSpeed}, Actual Speed: {currentSpeed:F2}");
         if (serialPort != null && serialPort.IsOpen)
         {
@@ -72,19 +84,18 @@ public class PaddleController : MonoBehaviour
                     if (paddleIdentifier == "Left")
                     {
                         float.TryParse(values[0].Trim(), out potValue);
+                        
                     }
                     else if (paddleIdentifier == "Right")
                     {
                         float.TryParse(values[1].Trim(), out potValue);
+                        
                     }
+                 
 
                     float targetPosition = (potValue / 1023f) * 10f - 5f;
                     currentPosition = Mathf.Lerp(currentPosition, targetPosition, Time.deltaTime * smoothSpeed);
 
-                    // Batasi posisi paddle
-                    currentPosition = Mathf.Clamp(currentPosition, lowerBoundary, upperBoundary);
-
-                    transform.position = new Vector3(transform.position.x, currentPosition, transform.position.z);
                 }
             }
             catch (System.Exception e)
@@ -95,7 +106,13 @@ public class PaddleController : MonoBehaviour
                 }
             }
         }
+        // Batasi posisi paddle
+        currentPosition = Mathf.Clamp(currentPosition, lowerBoundary, upperBoundary);
+
+        transform.position = new Vector3(transform.position.x, currentPosition, transform.position.z);
     }
+
+
 
     void RestartGame()
     {

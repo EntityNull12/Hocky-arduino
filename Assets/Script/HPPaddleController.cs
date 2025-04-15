@@ -59,6 +59,18 @@ public class HPPaddleController : MonoBehaviour
 
     void HandleInput()
     {
+
+        float keyboardInput = 0f;
+        if (paddleIdentifier == "Left")
+        {
+            keyboardInput = Input.GetAxis("vertical1") * paddleSpeed * Time.deltaTime * 2;
+        }
+        else if (paddleIdentifier == "Right")
+        {
+            keyboardInput = Input.GetAxis("vertical2") * paddleSpeed * Time.deltaTime * 2;
+        }
+        currentPosition += keyboardInput;
+
         if (serialPort != null && serialPort.IsOpen)
         {
             try
@@ -84,8 +96,7 @@ public class HPPaddleController : MonoBehaviour
 
                     float targetPosition = (potValue / 1023f) * 10f - 5f;
                     currentPosition = Mathf.Lerp(currentPosition, targetPosition, Time.deltaTime * smoothSpeed);
-                    currentPosition = Mathf.Clamp(currentPosition, lowerBoundary, upperBoundary);
-                    transform.position = new Vector3(transform.position.x, currentPosition, transform.position.z);
+                   
                 }
             }
             catch (System.Exception e)
@@ -96,6 +107,8 @@ public class HPPaddleController : MonoBehaviour
                 }
             }
         }
+        currentPosition = Mathf.Clamp(currentPosition, lowerBoundary, upperBoundary);
+        transform.position = new Vector3(transform.position.x, currentPosition, transform.position.z);
     }
 
     public void TakeDamage(int damage)
