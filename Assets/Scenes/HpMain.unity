@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afbb5cef3c61793438ffcbc4dd2cb862, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEscapeToExit: 1
+  isEscapeToExit: 0
   panelPause: {fileID: 360002312}
   tombolPause: {fileID: 1264039623}
 --- !u!114 &519420035
