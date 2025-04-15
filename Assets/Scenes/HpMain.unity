@@ -625,12 +625,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21ead33e40ef8d344ab46780f96d6d73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 400
-  defaultBallSpeed: 5
+  force: 600
   damageText: {fileID: 505295975}
   roundText: {fileID: 1110129070}
   hitSound: {fileID: 8300000, guid: ae128aa6ddee55c4ab8e7ea57a92ae0b, type: 3}
-  whistleSound: {fileID: 8300000, guid: 15194ed00a36b0d428b09046db153542, type: 3}
+  whistleSound: {fileID: 0}
 --- !u!1 &360002312
 GameObject:
   m_ObjectHideFlags: 0

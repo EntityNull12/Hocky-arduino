@@ -544,7 +544,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 0
   hitSound: {fileID: 8300000, guid: ae128aa6ddee55c4ab8e7ea57a92ae0b, type: 3}
-  whistleSound: {fileID: 8300000, guid: 15194ed00a36b0d428b09046db153542, type: 3}
+  whistleSound: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

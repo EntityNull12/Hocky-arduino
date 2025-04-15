@@ -5,7 +5,6 @@ public class HPBallController : MonoBehaviour
 {
     private Rigidbody2D rigid;
     [SerializeField] private float force;
-    [SerializeField] private float defaultBallSpeed = 5f;
     public Text damageText;
     public Text roundText;
     private int currentRound = 1;
@@ -108,6 +107,6 @@ public class HPBallController : MonoBehaviour
         float xPos = Random.Range(0, 2) == 0 ? -1 : 1;
         float yPos = Random.Range(-0.5f, 0.5f);
         Vector2 direction = new Vector2(xPos, yPos).normalized;
-        rigid.AddForce(direction * force);
+        rigid.AddForce(direction * GameSettings.instance.ballSpeed);
     }
 }
